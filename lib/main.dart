@@ -55,7 +55,7 @@ class MyStatelessWidget extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Ola mundo'),
+        title: Text('App Colaborador'),
         actions: <Widget>[
         ],
       ),
@@ -79,8 +79,12 @@ class MyStatelessWidget extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 1,
                 height: MediaQuery.of(context).size.height * 0.2,
                 color: Color.fromRGBO(0,139,139, 1),
+                child: Image(
+                  image: NetworkImage('http://colaborador.unimedvr.com.br/intranet/images/logo_unimed_novo.png'),
+                ),
               ),
               Container(
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   children: <Widget>[
                     Text('Unimed Volta Redonda',style: TextStyle(fontSize: 20)),
@@ -92,7 +96,7 @@ class MyStatelessWidget extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: 'Login',
                               //helperText: 'Login',
-                              icon: Icon(Icons.security),
+                              icon: Icon(Icons.assignment_ind_rounded),
                               border: OutlineInputBorder(),
                               //errorText: 'Login Incorreto!'
                               // prefix: Text('Prefix'),
@@ -126,6 +130,14 @@ class MyStatelessWidget extends StatelessWidget {
                             },
                             textAlign: TextAlign.center,
                           ),
+                          Container(
+                            color: Color.fromRGBO(0,139,139, 1),
+                            child: ButtonBar(
+                              children: [
+                                Text('Logar'),
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
