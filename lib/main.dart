@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -60,10 +61,79 @@ class MyStatelessWidget extends StatelessWidget {
       ),
       body: Center(
         child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(width: 1.0, color: Colors.grey),
+              left: BorderSide(width: 1.0, color: Colors.grey),
+              right: BorderSide(width: 1.0, color: Colors.grey),
+              bottom: BorderSide(width: 1.0, color: Colors.grey),
+            ),
+          ),
           margin: const EdgeInsets.all(10.0),
-          color: Color.fromRGBO(0,139,139, 1),
+          //color: Colors.white,
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.6,
+          child: Column(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * 0.2,
+                color: Color.fromRGBO(0,139,139, 1),
+              ),
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    Text('Unimed Volta Redonda',style: TextStyle(fontSize: 20)),
+                    Text('Área do Colaborador',style: TextStyle(fontSize: 20)),
+                    Form(
+                      child: Column(
+                        children: <Widget>[
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: 'Login',
+                              //helperText: 'Login',
+                              icon: Icon(Icons.security),
+                              border: OutlineInputBorder(),
+                              //errorText: 'Login Incorreto!'
+                              // prefix: Text('Prefix'),
+                              // suffix: Text('Suffix'),
+
+                            ),
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Entre com seu Login!';
+                              }
+                              return null;
+                            },
+                            textAlign: TextAlign.center,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: 'Senha',
+                              //helperText: 'Senha',
+                              icon: Icon(Icons.lock),
+                              border: OutlineInputBorder(),
+                              //errorText: 'Senha Incorreto!'
+                              // prefix: Text('Prefix'),
+                              // suffix: Text('Suffix'),
+
+                            ),
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Entre com seu Login!';
+                              }
+                              return null;
+                            },
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       backgroundColor: Colors.white,
